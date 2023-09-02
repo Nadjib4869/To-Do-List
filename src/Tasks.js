@@ -1,10 +1,19 @@
-import React from 'react'
-import Todo from './todo'
+import React from 'react';
 
-export default function Tasks({todoList, setActiveTaskId}) {
+export default function Tasks({ todo, toggleTodo, toggleSubtask, isSelected, selectTask }) {
   return (
-    todoList.map(todo=> {
-      return <Todo key={todo.id} onclick={()=>setActiveTaskId(todo.id)}  todo={todo}/>
-    })
+    <div className='mb-2'>
+    <li className={`cursor-pointer ${isSelected ? 'text-black bg-slate-300 rounded-lg p-1' : ''}`}
+    onClick={() => selectTask()}>
+      <label class="mt-1 cursor-pointer focus:font-bold focus:text-white">
+      <input1
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => toggleTodo(todo.id)}
+        />
+        {todo.text}
+      </label>
+    </li>
+    </div>
   )
 }
